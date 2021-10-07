@@ -1,0 +1,6 @@
+{
+    "SERVER_URL": "${API_URL}",
+    "PRIVATE_KEY":"${PRIVATE_KEY}",
+    "PUBLIC_KEY":"${PUBLIC_KEY}"
+  
+  }

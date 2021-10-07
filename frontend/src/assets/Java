@@ -1,0 +1,34 @@
+package com.ibm.cloud.is.vpc.v1;
+import com.ibm.cloud.is.vpc.v1.model.InstanceCollection;
+import com.ibm.cloud.is.vpc.v1.model.ListInstancesOptions;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.ibm.cloud.sdk.core.http.Response;
+
+
+public class VPCExamples {
+private static final Logger logger = LoggerFactory.getLogger(VPCExamples.class);
+protected VPCExamples() { }
+static {
+System.setProperty("IBM_CREDENTIALS_FILE", "../../vpc.env");
+}
+public static void main(String[] args) throws Exception {
+Authenticator authenticator = new IamAuthenticator("{apikey}");
+Vpc service = new Vpc("{version}", Vpc.DEFAULT_SERVICE_NAME, authenticator);
+Vpc.setServiceUrl("https://us-south.iaas.cloud.ibm.com");
+try {
+// begin-list_instances
+ListInstancesOptions listInstancesOptions = new ListInstancesOptions.Builder()
+.build();
+Response<InstanceCollection> response = service.listInstances(listInstancesOptions).execute();
+InstanceCollection instanceCollectionResult = response.getResult();
+System.out.println("List instances:\n" + instanceCollectionResult.toString());
+// end-list_instances
+} catch (ServiceResponseException e) {
+logger.error(String.format("Service returned status code %s: %s\nError details: %s",
+e.getStatusCode(), e.getMessage(), e.getDebuggingInfo()), e);
+}
+}
+}
+

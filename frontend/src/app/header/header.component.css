@@ -1,0 +1,15 @@
+.custom-header{
+    background-color: #ffffff;
+    max-height: 50px;
+    padding: 0px;
+}
+.custom-header::after{
+    background-color: black;
+}
+.p-outline{
+
+    color: #525252;
+    /* margin-right: 1131px; */
+    margin-top: 10px;
+    margin-right: 14px;
+}
