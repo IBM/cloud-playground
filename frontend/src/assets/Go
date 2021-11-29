@@ -1,0 +1,20 @@
+package main
+import (
+"fmt"
+"github.com/IBM/go-sdk-core/v5/core"
+"github.com/IBM/vpc-go-sdk/vpcv1"
+"net/http"
+)
+func main() {
+authenticator := &core.IamAuthenticator{
+ApiKey: "apikey",
+}
+options := &vpcv1.VpcV1Options{
+Authenticator: authenticator,
+}
+vpcService, vpcServiceErr := vpcv1.NewVpcV1(options)
+vpcService.SetServiceURL("https://us-south.iaas.cloud.ibm.com")
+if vpcServiceErr != nil {
+panic(vpcServiceErr)
+}
+}

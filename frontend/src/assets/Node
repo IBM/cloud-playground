@@ -1,0 +1,13 @@
+const service = {
+  authenticator: = new IamAuthenticator({
+  apikey: '{iam-api-key}',
+}),
+};
+service.setServiceUrl("https://us-south.iaas.cloud.ibm.com");
+const vpcService = new VpcV1(service);
+try {
+} catch (err) {
+    // ...handle error response...
+    console.log("Error status code: " + err.status + " (" + err.statusText + ")");
+    console.log("Error message:     " + err.message);
+}

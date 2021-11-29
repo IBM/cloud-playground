@@ -1,0 +1,7 @@
+<DO_IMPORT_REPLACE>
+
+class CPLTest {
+    public static void main(String[] args) {
+        <DO_CODE_REPLACE>
+    }
+}
